@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\usepackage[style=authoryear,autocite=inline]{biblatex}
+\addbibresource{biblatex-examples.bib}
+\usepackage{blindtext}
+\usepackage{geometry}
+\geometry{a3paper,margin=1.5cm}
+\usepackage{tcolorbox}
+\tcbuselibrary{raster}
+\tcbset{%
+	colback=blue!15!white,
+	colframe=blue!65!black,
+	fonttitle =\large,
+}
+\newcommand{\ini}{\textsuperscript{1}}
+\newcommand{\inii}{\textsuperscript{2}}
+\begin{document}
+\pagestyle{empty}
+\begin{tcolorbox}[colback=white,colframe=blue!75!black]
+	\centering
+	\Huge {\sffamily Searching for a great title} \par
+	\large Carl Capybara and Walter Wombat
+\end{tcolorbox}
+\begin{tcolorbox}[title=Abstract ]
+	\blindtext
+\end{tcolorbox}
+\begin{tcbraster}[raster columns=3]
+	\begin{tcolorbox}[ title=Experimental Setup ]
+		\blindtext
+	\end{tcolorbox}
+	\begin{tcolorbox}[title =Experimental setup, raster multicolumn=2,sidebyside]
+		The picture on the right would show the
+		experimental setup\autocite{ctan}, right now it is just an
+		example image from package
+		mwe\autocite{aristotle:physics}.
+		\tcblower
+		\centering
+		\includegraphics[width=.9\linewidth]{example-image}
+	\end{tcolorbox}
+	\begin{tcolorbox}[title =Results]
+		\begin{center}
+		\begin{tabular}{cl}
+			Name & Beverage \\\hline
+			Peter & Coffee \\
+			Paul  & Tea \\
+			Mary & Irish Coffee \\
+		\end{tabular}
+		\end{center}
+
+		Results explained here, see also
+		\autocite{westfahl:space,companion}
+	\end{tcolorbox}
+	\begin{tcolorbox}[title = more results, raster multicolumn=2]
+		\blindtext
+	\end{tcolorbox}
+	\begin{tcolorbox}[raster multicolumn=2,title = Outlook ]
+		If we can reproduce this, we will have a great
+		future. \blindtext
+	\end{tcolorbox}
+	\begin{tcolorbox}[colback=white,colframe=white]
+	\end{tcolorbox}
+	\begin{tcolorbox}[raster multicolumn=3,title =References]
+		\printbibliography[heading=none]
+	\end{tcolorbox}
+\end{tcbraster}
+\end{document}
